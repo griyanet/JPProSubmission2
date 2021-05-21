@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/movies"
+        android:name="com.example.jpsubmission2.view.ui.movies.MoviesFragment"
+        android:label="@string/title_Movies"
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_navigation_home_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.example.jpsubmission2.view.ui.favorites.FavoritesFragment"
+        android:label="@string/title_Favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favorites_to_favoriteDetailFragment"
+            app:destination="@id/favoriteDetailFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/tvShows"
+        android:name="com.example.jpsubmission2.view.ui.tvshows.TvShowsFragment"
+        android:label="@string/title_TvShows"
+        tools:layout="@layout/fragment_tvshows" >
+        <action
+            android:id="@+id/action_tvShows_to_tvShowsDetailsFragment"
+            app:destination="@id/tvShowsDetailsFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.example.jpsubmission2.view.ui.movies.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" >
+
+        <argument
+            android:name="movies"
+            app:argType="com.example.jpsubmission2.data.remote.responses.MovieResultsItem" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tvShowsDetailsFragment"
+        android:name="com.example.jpsubmission2.view.ui.tvshows.TvShowsDetailsFragment"
+        android:label="fragment_tv_shows_details"
+        tools:layout="@layout/fragment_tv_shows_details" >
+
+        <argument
+            android:name="tvShows"
+            app:argType="com.example.jpsubmission2.data.remote.responses.TvResultsItem" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteDetailFragment"
+        android:name="com.example.jpsubmission2.view.ui.favorites.FavoriteDetailFragment"
+        android:label="FavoriteDetailFragment" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.jpsubmission2.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_movies"
+            app:destination="@id/movies"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_splashPagerFragment"
+            app:destination="@id/splashPagerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashPagerFragment"
+        android:name="com.example.jpsubmission2.splash.SplashPagerFragment"
+        android:label="SplashPagerFragment" >
+        <action
+            android:id="@+id/action_splashPagerFragment_to_movies"
+            app:destination="@id/movies"
+            app:popUpTo="@id/splashPagerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

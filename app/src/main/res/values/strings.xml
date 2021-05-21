@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">JPSubmission2</string>
+    <string name="title_activity_movie">Movies Activity</string>
+    <string name="title_Movies">Movies</string>
+    <string name="title_Favorites">Favorites</string>
+    <string name="title_TvShows">TvShows</string>
+    <string name="img_movie_desc">movie poster image</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        \n\n"
+    </string>
+    <string name="lbl_Synopsis">Synopsis</string>
+    <string name="movieTitle">Movie Title</string>
+    <string name="lbl_releaseDate">Release Date</string>
+    <string name="release_date">02/11/2018</string>
+    <string name="lbl_budget">Budget</string>
+    <string name="budget">$200,000,000</string>
+    <string name="lbl_revenue">Revenue</string>
+    <string name="revenue">$1,230,500,000</string>
+    <string name="backdrop_desc">Backdrop Image</string>
+    <string name="poster_desc">Poster Image</string>
+    <string name="title_tv_shows">TV Shows Title</string>
+    <string name="lbl_releaseYear">Release Year</string>
+    <string name="addFavorite">We add this movie to your Favorite list</string>
+    <string name="fab">floating action button</string>
+    <string name="splash_image">Splash Image</string>
+    <string name="splash_home">Aplikasi MovieDB with Testing package</string>
+    <string name="screen1">Avenger</string>
+    <string name="screen2">Spiderman</string>
+    <string name="screen3">Dragon Ball</string>
+    <string name="movie_fragment_resource_error">Resource Error occurred in MoviesFragment</string>
+    <string name="movie_detail_fragment_resource_error">Resource Error occurred in MovieDetailsFragment</string>
+    <string name="tv_shows_fragment_resource_error">Resource Error occurred in TvShowsFragment</string>
+    <string name="tv_shows_detail_fragment_resource_error">Resource Error occurred in TvShowsDetailsFragment</string>
+</resources>

@@ -1,0 +1,25 @@
+#Unit Test
+
+MovieViewModelTest:
+ - Memastikan data movies tidak Null
+ - Memastikan jumlah data movies sesuai dengan yang diharapkan
+
+MovieDetailViewModelTest:
+ - Memastikan data movie yg dipilih dimuat sesuai dengan yang diharapkan
+ - Memastikan data movie yg dimuat sesuai dengan yang diharapkan
+
+TvShowsViewModelTest:
+ - Memastikan data TvShows tidak Null
+ - Memastikan jumlah data TvShows sesuai dengan yang diharapkan
+
+TvShowDetailViewModelTest:
+ - Memastikan data TvShow yg dipilih dimuat sesuai dengan yang diharapkan
+ - Memastikan data TvShow yg dimuat sesuai dengan yang diharapkan
+
+FavoritesViewModelTest:
+ - Memastikan data Favorites tidak Null
+ - Memastikan jumlah data Favorites sesuai dengan yang diharapkan
+
+FavoriteDetailViewModelTest:
+ - Memastikan data Favorite yg dipilih dimuat sesuai dengan yang diharapkan
+ - Memastikan data Favorite yg dimuat sesuai dengan yang diharapkan
