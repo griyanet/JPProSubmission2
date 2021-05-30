@@ -1,4 +1,4 @@
-package com.util
+package com.example.jpsubmission2.util
 
 import android.view.View
 import androidx.databinding.DataBindingUtil

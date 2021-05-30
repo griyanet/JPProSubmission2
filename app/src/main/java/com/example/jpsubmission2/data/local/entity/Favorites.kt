@@ -10,6 +10,6 @@ data class FavoritesMovie(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     var movieItems: MovieResultsItem,
-    var favorite: Boolean = false
+    var favorite: Boolean = true
 )
 

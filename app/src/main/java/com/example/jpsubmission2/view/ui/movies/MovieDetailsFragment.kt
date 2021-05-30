@@ -39,7 +39,6 @@ class MovieDetailsFragment @Inject constructor(
         viewModel.movieSelected(args.movies)
         viewModel.getMovieDetails()
         viewModel.movieDetails.observe(viewLifecycleOwner, {
-            Log.d("MovieDetailFragment", "Read Movie Detail from Network")
             it.getContentIfNotHandled().let { result ->
                 when (result?.status) {
                     Status.SUCCESS -> {
@@ -63,6 +62,8 @@ class MovieDetailsFragment @Inject constructor(
             if (!isFavorite) {
                 saveToFavorite()
             } else {
+                checkSavedFavorites()
+                setFavoriteId()
                 deleteFavorite(favoriteId)
             }
         }
@@ -73,36 +74,14 @@ class MovieDetailsFragment @Inject constructor(
             val favorite = FavoritesMovie(0, args.movies, true)
             viewModel.insertFavorite(favorite)
             movieDetailBinding.movieDetail.snack(R.string.addFavorite)
-            changeButtonStatus(true, R.drawable.ic_add_favorite)
+            changeButtonStatus(true)
+            checkSavedFavorites()
         }
     }
-
-    private fun changeButtonStatus(isFavorite: Boolean, button: Int) {
-        this.isFavorite = isFavorite
-        movieContentBinding.fabFavorite.setImageResource(button)
-    }
-
-    private fun checkSavedFavorites() {
-        Log.d("checkFavorite", "checkSavedFavorite called!")
-        viewModel.getAllFavorite()
-        viewModel.isMovieExistInFavorite()
-        viewModel.isFavorite.observe(viewLifecycleOwner, {
-            Log.d("checkFavoriteStatus", it.toString())
-            if (isFavorite) {
-                viewModel.getFavorite()
-                favoriteId = viewModel.favoriteId.value!!
-                changeButtonStatus(true, R.drawable.ic_add_favorite)
-            } else {
-                changeButtonStatus(false, R.drawable.ic_favorite_blank)
-            }
-        })
-
-    }
-
     private fun deleteFavorite(id: Int) {
         val favorite = FavoritesMovie(id, args.movies)
         viewModel.deleteFavorite(favorite)
-        changeButtonStatus(false, R.drawable.ic_favorite_blank)
+        changeButtonStatus(false)
         movieDetailBinding.movieDetail.snack(R.string.favorite_delete)
     }
 
@@ -118,5 +97,36 @@ class MovieDetailsFragment @Inject constructor(
             tvRevenue.text = result.revenue.toString()
             tvSynopsis.text = result.overview
         }
+    }
+
+    private fun checkSavedFavorites() {
+        viewModel.getAllFavorite().observe(viewLifecycleOwner, { favList ->
+            viewModel.setAllFavorite(favList)
+            for (favItem in favList) {
+                if (favItem.movieItems.movieId == args.movies.movieId) {
+                    this.isFavorite = favItem.favorite
+                    viewModel.setIsFavorite(favItem.favorite)
+                    viewModel.setFavoriteId(favItem.id)
+                    changeButtonStatus(isFavorite)
+                } else {
+                    viewModel.setIsFavorite(false)
+                }
+            }
+        })
+    }
+
+    private fun setFavoriteId() {
+        viewModel.favoriteId.observe(viewLifecycleOwner, {
+            this.favoriteId = it
+        })
+    }
+
+    private fun changeButtonStatus(status: Boolean) {
+        if (status) {
+            movieContentBinding.fabFavorite.setImageResource(R.drawable.ic_add_favorite)
+        } else {
+            movieContentBinding.fabFavorite.setImageResource(R.drawable.ic_favorite_blank)
+        }
+
     }
 }

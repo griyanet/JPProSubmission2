@@ -76,25 +76,5 @@ class MovieDetailsViewModelTest {
         assertNotNull(testResult)
     }
 
-    @Test
-    fun `insertFavorite using given MovieResultsItem`() {
-        viewModel.insertFavorite(favorites[0])
-        val result = viewModel.favorites
-    }
 
-    @Test
-    fun `delete favorites`() {
-        testCoroutineRule.runBlockingTest {
-
-            repository.deleteFavorite(favorites[1])
-        }
-
-    }
-
-    @Test
-    fun `observe favorites`() {
-        testCoroutineRule.runBlockingTest {
-            return@runBlockingTest
-        }
-    }
 }

@@ -1,5 +1,6 @@
 package com.example.jpsubmission2.view.ui.movies
 
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -57,26 +58,19 @@ class MovieDetailsViewModel @ViewModelInject constructor(private val repository:
         favViewModel.deleteFavorite(favoritesMovie)
     }
 
-    fun getAllFavorite() {
-        _favoritesList.value = favViewModel.getFavorites().value
+    fun getAllFavorite(): LiveData<List<FavoritesMovie>> {
+        return favViewModel.getFavorites()
     }
 
-    fun isMovieExistInFavorite() {
-        val favList = _favoritesList.value
-        if (favList != null) {
-            for (favItem in favList) {
-                if (favItem.movieItems.movieId == movieId) {
-                    _favoriteId.value = favItem.id
-                    _isFavorite.value = favItem.favorite
-                } else {
-                    _isFavorite.value = favItem.favorite
-                }
-            }
-        }
+    fun setAllFavorite(list: List<FavoritesMovie>) {
+        _favoritesList.value = list
     }
 
-    fun getFavorite(): LiveData<FavoritesMovie> {
-        _favoriteId.value?.let { favViewModel.getFavoriteItem(it) }
-        return favViewModel.favorite
+    fun setIsFavorite(isFav: Boolean) {
+        _isFavorite.value = isFav
+    }
+
+    fun setFavoriteId(id: Int) {
+        _favoriteId.value = id
     }
 }
