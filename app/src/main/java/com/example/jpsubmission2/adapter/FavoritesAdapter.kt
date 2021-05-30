@@ -2,24 +2,37 @@ package com.example.jpsubmission2.view.ui.favorites
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.jpsubmission2.R
-import com.example.jpsubmission2.data.local.FavoritesMovie
+import com.example.jpsubmission2.data.local.entity.FavoritesMovie
 import com.example.jpsubmission2.databinding.ItemsMovieBinding
+import com.example.jpsubmission2.utils.Constant
 
-class FavoriteMoviesAdapter: RecyclerView.Adapter<FavoriteMoviesAdapter.FavoriteMoviesViewHolder>() {
+class FavoriteMoviesAdapter :
+    RecyclerView.Adapter<FavoriteMoviesAdapter.FavoriteMoviesViewHolder>() {
 
-    private var listFavMovies = ArrayList<FavoritesMovie>()
+    private val diffCallBack = object : DiffUtil.ItemCallback<FavoritesMovie>() {
+        override fun areItemsTheSame(
+            oldItem: FavoritesMovie,
+            newItem: FavoritesMovie
+        ): Boolean {
+            return oldItem == newItem
+        }
 
-    fun setMovies(favMovies: List<FavoritesMovie>?) {
-        if (favMovies == null) return
-        this.listFavMovies.clear()
-        this.listFavMovies.addAll(favMovies)
+        override fun areContentsTheSame(oldItem: FavoritesMovie, newItem: FavoritesMovie): Boolean {
+            return oldItem == newItem
+        }
     }
+
+    private val differ = AsyncListDiffer(this, diffCallBack)
+    var favMovies: List<FavoritesMovie>
+        get() = differ.currentList
+        set(value) = differ.submitList(value)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteMoviesViewHolder {
         val itemsMovieBinding =
@@ -28,30 +41,32 @@ class FavoriteMoviesAdapter: RecyclerView.Adapter<FavoriteMoviesAdapter.Favorite
     }
 
     override fun onBindViewHolder(holder: FavoriteMoviesViewHolder, position: Int) {
-        val movies = listFavMovies[position]
+        val movies = favMovies[position]
         holder.bind(movies)
     }
 
-    override fun getItemCount(): Int = listFavMovies.size
+    override fun getItemCount(): Int = favMovies.size
 
     class FavoriteMoviesViewHolder(private val binding: ItemsMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(favMovies: FavoritesMovie) {
+            val favMoviesItem = favMovies.movieItems
+            val favoriteId = favMovies.id
             with(binding) {
-                tvTitle.text = favMovies.original_title
-                tvMovieDate.text = favMovies.release_date
-                tvOverview.text = favMovies.overview
+                tvTitle.text = favMovies.movieItems.originalTitle
+                tvMovieDate.text = favMovies.movieItems.releaseDate
+                tvOverview.text = favMovies.movieItems.overview
                 itemView.setOnClickListener {
-                    val toFavMovieDetails = FavoritesFragmentDirections.actionFavoritesToFavoriteDetailFragment()
+                    val toFavMovieDetails =
+                        FavoritesFragmentDirections.actionFavoritesToMovieDetailsFragment(
+                            favMoviesItem, favoriteId
+                        )
                     itemView.findNavController().navigate(toFavMovieDetails)
-                    Toast.makeText(
-                        itemView.context,
-                        favMovies.original_title + "is click",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
+                val posterImg = Constant.BASE_IMAGE_SMALL + favMovies.movieItems.posterPath
                 Glide.with(itemView.context)
-                    .load(favMovies.image)
+                    .load(posterImg)
                     .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
                     .error(R.drawable.ic_image_error)
                     .into(imgMovie)

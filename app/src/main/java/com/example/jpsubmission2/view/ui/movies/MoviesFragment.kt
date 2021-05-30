@@ -12,38 +12,29 @@ import com.example.jpsubmission2.data.remote.responses.MovieResultsItem
 import com.example.jpsubmission2.databinding.FragmentMoviesBinding
 import com.example.jpsubmission2.utils.Status
 import com.example.jpsubmission2.utils.snack
-import com.example.jpsubmission2.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class MoviesFragment @Inject constructor(
-    private val moviesAdapter: MoviesAdapter
-) : Fragment(R.layout.fragment_movies) {
+class MoviesFragment : Fragment(R.layout.fragment_movies) {
 
     private lateinit var _fragmentMoviesBinding: FragmentMoviesBinding
     private val fragmentMoviesBinding get() = _fragmentMoviesBinding
-    lateinit var viewModel: MainViewModel
-
-    /*override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _fragmentMoviesBinding = FragmentMoviesBinding.inflate(layoutInflater, container, false)
-        return _fragmentMoviesBinding.root
-    }*/
+    lateinit var viewModel: MovieViewModel
+    private lateinit var moviesAdapter: MoviesAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        val binding = FragmentMoviesBinding.bind(view)
+        _fragmentMoviesBinding = binding
+        viewModel = ViewModelProvider(requireActivity()).get(MovieViewModel::class.java)
         viewModel.getMovies()
         setupRecyclerView()
         subscribeToObserver()
     }
 
     private fun setupRecyclerView() {
+        moviesAdapter = MoviesAdapter()
         with(fragmentMoviesBinding.rvMovie) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
@@ -55,20 +46,20 @@ class MoviesFragment @Inject constructor(
     private fun subscribeToObserver() {
         viewModel.movies.observe(viewLifecycleOwner, {
             Log.d("MoviesFragment", "Read data from network")
-            it.getContentIfNotHandled()?.let { result ->
-                when (result.status) {
+            it.getContentIfNotHandled().let { result ->
+                when (result?.status) {
                     Status.SUCCESS -> {
                         result.data?.results.let { resultItem ->
                             moviesAdapter.movies = resultItem as List<MovieResultsItem>
-                            fragmentMoviesBinding.progressBar.visibility = View.GONE
+                            fragmentMoviesBinding.pbMovies.visibility = View.GONE
                         }
                     }
                     Status.ERROR -> {
-                        fragmentMoviesBinding.fragmentMovie.snack(R.string.movie_fragment_resource_error)
-                        fragmentMoviesBinding.progressBar.visibility = View.GONE
+                        fragmentMoviesBinding.fragmentMovies.snack(R.string.movie_fragment_resource_error)
+                        fragmentMoviesBinding.pbMovies.visibility = View.GONE
                     }
                     Status.LOADING -> {
-                        fragmentMoviesBinding.progressBar.visibility = View.VISIBLE
+                        fragmentMoviesBinding.pbMovies.visibility = View.VISIBLE
                     }
                 }
             }

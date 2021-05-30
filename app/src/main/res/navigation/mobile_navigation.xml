@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
     app:startDestination="@id/splashFragment">
 
     <fragment
@@ -21,8 +20,8 @@
         android:label="@string/title_Favorites"
         tools:layout="@layout/fragment_favorites" >
         <action
-            android:id="@+id/action_favorites_to_favoriteDetailFragment"
-            app:destination="@id/favoriteDetailFragment"/>
+            android:id="@+id/action_favorites_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
     </fragment>
 
     <fragment
@@ -44,6 +43,10 @@
         <argument
             android:name="movies"
             app:argType="com.example.jpsubmission2.data.remote.responses.MovieResultsItem" />
+        <argument
+            android:name="favoriteId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
     <fragment

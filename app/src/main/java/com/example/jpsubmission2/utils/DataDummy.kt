@@ -1,9 +1,9 @@
 package com.example.jpsubmission2.utils
 
 import com.example.jpsubmission2.R
-import com.example.jpsubmission2.data.local.FavoritesMovie
-import com.example.jpsubmission2.data.local.Movies
-import com.example.jpsubmission2.data.local.TvShows
+import com.example.jpsubmission2.data.local.entity.FavoritesMovies
+import com.example.jpsubmission2.data.local.entity.Movies
+import com.example.jpsubmission2.data.local.entity.TvShows
 
 object DataDummy {
 
@@ -216,52 +216,58 @@ object DataDummy {
         val tvShows = ArrayList<TvShows>()
 
         tvShows.add(
-                TvShows(
-            "tv01",
-            "Arrow",
-            "2012",
-            "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
-            R.drawable.poster_arrow)
+            TvShows(
+                "tv01",
+                "Arrow",
+                "2012",
+                "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
+                R.drawable.poster_arrow
+            )
         )
         tvShows.add(
             TvShows(
-            "tv02",
-            "Doom Patrol",
-            "2019",
-            "The Doom Patrol’s members each suffered horrible accidents that gave them superhuman abilities — but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence — and to protect Earth from what they find.",
-            R.drawable.poster_doom_patrol)
+                "tv02",
+                "Doom Patrol",
+                "2019",
+                "The Doom Patrol’s members each suffered horrible accidents that gave them superhuman abilities — but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence — and to protect Earth from what they find.",
+                R.drawable.poster_doom_patrol
+            )
         )
         tvShows.add(
             TvShows(
-            "tv03",
-            "Dragon Ball Absalon",
-            "2012",
-            "The series begins twelve years after Goku is seen leaving on Shenron not at the end of Dragon Ball GT, and diverges entirely into its own plot from there, on an alternate timeline from the one which shows Goku Jr. fighting Vegeta Jr. at the World Martial Arts Tournament. In this series, Majuub has reached new levels of power, and has honed the techniques taught to him by Goku. ",
-            R.drawable.poster_dragon_ball)
+                "tv03",
+                "Dragon Ball Absalon",
+                "2012",
+                "The series begins twelve years after Goku is seen leaving on Shenron not at the end of Dragon Ball GT, and diverges entirely into its own plot from there, on an alternate timeline from the one which shows Goku Jr. fighting Vegeta Jr. at the World Martial Arts Tournament. In this series, Majuub has reached new levels of power, and has honed the techniques taught to him by Goku. ",
+                R.drawable.poster_dragon_ball
+            )
         )
         tvShows.add(
             TvShows(
-            "tv04",
-            "Fairy Tail",
-            "2009",
-            "Lucy is a 17-year-old girl, who wants to be a full-fledged mage. One day when visiting Harujion Town, she meets Natsu, a young man who gets sick easily by any type of transportation. But Natsu isn't just any ordinary kid, he's a member of one of the world's most infamous mage guilds: Fairy Tail.",
-            R.drawable.poster_fairytail)
+                "tv04",
+                "Fairy Tail",
+                "2009",
+                "Lucy is a 17-year-old girl, who wants to be a full-fledged mage. One day when visiting Harujion Town, she meets Natsu, a young man who gets sick easily by any type of transportation. But Natsu isn't just any ordinary kid, he's a member of one of the world's most infamous mage guilds: Fairy Tail.",
+                R.drawable.poster_fairytail
+            )
         )
         tvShows.add(
             TvShows(
-            "tv05",
-            "Family Guy",
-            "1999",
-            "Sick, twisted, politically incorrect and Freakin' Sweet animated series featuring the adventures of the dysfunctional Griffin family. Bumbling Peter and long-suffering Lois have three kids. Stewie (a brilliant but sadistic baby bent on killing his mother and taking over the world), Meg (the oldest, and is the most unpopular girl in town) and Chris (the middle kid, he's not very bright but has a passion for movies).",
-            R.drawable.poster_family_guy)
+                "tv05",
+                "Family Guy",
+                "1999",
+                "Sick, twisted, politically incorrect and Freakin' Sweet animated series featuring the adventures of the dysfunctional Griffin family. Bumbling Peter and long-suffering Lois have three kids. Stewie (a brilliant but sadistic baby bent on killing his mother and taking over the world), Meg (the oldest, and is the most unpopular girl in town) and Chris (the middle kid, he's not very bright but has a passion for movies).",
+                R.drawable.poster_family_guy
+            )
         )
         tvShows.add(
             TvShows(
-            "tv06",
-            "The Flash",
-            "2014",
-            "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good.",
-            R.drawable.poster_flash)
+                "tv06",
+                "The Flash",
+                "2014",
+                "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good.",
+                R.drawable.poster_flash
+            )
         )
         tvShows.add(
             TvShows(
@@ -269,7 +275,8 @@ object DataDummy {
                 "Game of Thrones",
                 "2011",
                 "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
-                R.drawable.poster_god)
+                R.drawable.poster_god
+            )
         )
         tvShows.add(
             TvShows(
@@ -277,7 +284,8 @@ object DataDummy {
                 "Gotham",
                 "2014",
                 "Everyone knows the name Commissioner Gordon. He is one of the crime world's greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon's story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world's most iconic villains?",
-                R.drawable.poster_gotham)
+                R.drawable.poster_gotham
+            )
         )
         tvShows.add(
             TvShows(
@@ -285,7 +293,8 @@ object DataDummy {
                 "Grey's Anatomy",
                 "2005",
                 "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
-                R.drawable.poster_grey_anatomy)
+                R.drawable.poster_grey_anatomy
+            )
         )
         tvShows.add(
             TvShows(
@@ -293,7 +302,8 @@ object DataDummy {
                 "Hanna",
                 "2019",
                 "This thriller and coming-of-age drama follows the journey of an extraordinary young girl as she evades the relentless pursuit of an off-book CIA agent and tries to unearth the truth behind who she is. Based on the 2011 Joe Wright film.",
-                R.drawable.poster_hanna)
+                R.drawable.poster_hanna
+            )
         )
         tvShows.add(
             TvShows(
@@ -301,7 +311,8 @@ object DataDummy {
                 "Marvel's Iron Fist",
                 "2017",
                 "Danny Rand resurfaces 15 years after being presumed dead. Now, with the power of the Iron Fist, he seeks to reclaim his past and fulfill his destiny.",
-                R.drawable.poster_iron_fist)
+                R.drawable.poster_iron_fist
+            )
         )
         tvShows.add(
             TvShows(
@@ -309,7 +320,8 @@ object DataDummy {
                 "Naruto Shippūden",
                 "2007",
                 "Naruto Shippuuden is the continuation of the original animated TV series Naruto.The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru.",
-                R.drawable.poster_naruto_shipudden)
+                R.drawable.poster_naruto_shipudden
+            )
         )
         tvShows.add(
             TvShows(
@@ -317,7 +329,8 @@ object DataDummy {
                 "NCIS",
                 "2003",
                 "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has a shred of evidence connected to Navy and Marine Corps personnel, regardless of rank or position.",
-                R.drawable.poster_ncis)
+                R.drawable.poster_ncis
+            )
         )
         tvShows.add(
             TvShows(
@@ -325,7 +338,8 @@ object DataDummy {
                 "Riverdale",
                 "2017",
                 "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
-                R.drawable.poster_riverdale)
+                R.drawable.poster_riverdale
+            )
         )
         tvShows.add(
             TvShows(
@@ -333,7 +347,8 @@ object DataDummy {
                 "Shameless",
                 "2011",
                 "Chicagoan Frank Gallagher is the proud single dad of six smart, industrious, independent kids, who without him would be... perhaps better off. When Frank's not at the bar spending what little money they have, he's passed out on the floor. But the kids have found ways to grow up in spite of him. They may not be like any family you know, but they make no apologies for being exactly who they are.",
-                R.drawable.poster_shameless)
+                R.drawable.poster_shameless
+            )
         )
         tvShows.add(
             TvShows(
@@ -341,7 +356,8 @@ object DataDummy {
                 "Supergirl",
                 "2015",
                 "Twenty-four-year-old Kara Zor-El, who was taken in by the Danvers family when she was 13 after being sent away from Krypton, must learn to embrace her powers after previously hiding them. The Danvers teach her to be careful with her powers, until she has to reveal them during an unexpected disaster, setting her on her journey of heroism.",
-                R.drawable.poster_supergirl)
+                R.drawable.poster_supergirl
+            )
         )
         tvShows.add(
             TvShows(
@@ -349,7 +365,8 @@ object DataDummy {
                 "Supernatural",
                 "2005",
                 "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. ",
-                R.drawable.poster_supernatural)
+                R.drawable.poster_supernatural
+            )
         )
         tvShows.add(
             TvShows(
@@ -357,7 +374,8 @@ object DataDummy {
                 "The Simpsons",
                 "1989",
                 "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
-                R.drawable.poster_the_simpson)
+                R.drawable.poster_the_simpson
+            )
         )
         tvShows.add(
             TvShows(
@@ -365,7 +383,8 @@ object DataDummy {
                 "The Umbrella Academy",
                 "2019",
                 "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
-                R.drawable.poster_the_umbrella)
+                R.drawable.poster_the_umbrella
+            )
         )
         tvShows.add(
             TvShows(
@@ -373,17 +392,18 @@ object DataDummy {
                 "The Walking Dead",
                 "2010",
                 "Sheriff's deputy Rick Grimes awakens from a coma to find a post-apocalyptic world dominated by flesh-eating zombies. He sets out to find his family and encounters many other survivors along the way.",
-                R.drawable.poster_the_walking_dead)
+                R.drawable.poster_the_walking_dead
+            )
         )
 
         return tvShows
     }
 
-    fun generateFavorites(): List<FavoritesMovie> {
-        val favorites = ArrayList<FavoritesMovie>()
+    fun generateFavorites(): List<FavoritesMovies> {
+        val favorites = ArrayList<FavoritesMovies>()
 
         favorites.add(
-            FavoritesMovie(
+            FavoritesMovies(
                 "m15",
                 "Serenity",
                 "01/25/2019",
@@ -394,7 +414,7 @@ object DataDummy {
             )
         )
         favorites.add(
-            FavoritesMovie(
+            FavoritesMovies(
                 "m08",
                 "How to Train Your Dragon",
                 "03/26/2010",
@@ -405,7 +425,7 @@ object DataDummy {
             )
         )
         favorites.add(
-            FavoritesMovie(
+            FavoritesMovies(
                 "m07",
                 "Glass",
                 "01/18/2019",
@@ -416,7 +436,7 @@ object DataDummy {
             )
         )
         favorites.add(
-            FavoritesMovie(
+            FavoritesMovies(
                 "m04",
                 "Bohemian Rhapsody",
                 "02/11/2018",
@@ -427,7 +447,7 @@ object DataDummy {
             )
         )
         favorites.add(
-            FavoritesMovie(
+            FavoritesMovies(
                 "m01",
                 "A Star is born",
                 "10/05/2018",

@@ -16,4 +16,17 @@ object Constant {
     const val YOUTUBE_THUMBNAIL_START_URL: String = "https://img.youtube.com/vi/"
     const val YOUTUBE_THUMBNAIL_END_URL: String = "/0.jpg"
     const val YOUTUBE_TRAILER_BASE_URL = "https://www.youtube.com/watch?v="
+
+    //ROOM Database
+    const val DATABASE_NAME = "imdb_db"
+    const val FAVORITE_TABLE = "favorite_movies_table"
+
+    //Repository Extension
+    const val UNABLE_TO_RESOLVE_HOST = "Unable to resolve host"
+    const val DATA_ACCESS_ERROR = "Unable to resolve host"
+
+    //Retrofit
+    const val NETWORK_TIMEOUT = 10000L
+    const val CACHE_TIMEOUT = 2000L
+    const val CACHE_ERROR_TIMEOUT = "Cache timeout"
 }

@@ -1,5 +1,6 @@
 package com.example.jpsubmission2.data.remote
 
+import androidx.lifecycle.LiveData
 import com.example.jpsubmission2.BuildConfig
 import com.example.jpsubmission2.data.remote.responses.*
 import retrofit2.Response

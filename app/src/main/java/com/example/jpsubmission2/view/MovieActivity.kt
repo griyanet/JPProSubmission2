@@ -25,6 +25,7 @@ class MovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportFragmentManager.fragmentFactory = fragmentFactory
+
         binding = ActivityMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

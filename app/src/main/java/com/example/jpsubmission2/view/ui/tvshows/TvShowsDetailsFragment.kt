@@ -9,11 +9,11 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.RequestManager
 import com.example.jpsubmission2.R
 import com.example.jpsubmission2.data.remote.responses.TvDetailResponse
+import com.example.jpsubmission2.databinding.FragmentTvContentBinding
 import com.example.jpsubmission2.databinding.FragmentTvShowsDetailsBinding
 import com.example.jpsubmission2.utils.Constant
 import com.example.jpsubmission2.utils.Status
 import com.example.jpsubmission2.utils.snack
-import com.example.jpsubmission2.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -23,21 +23,16 @@ class TvShowsDetailsFragment @Inject constructor(
 ) : Fragment(R.layout.fragment_tv_shows_details) {
 
     private lateinit var tvShowsDetailBinding: FragmentTvShowsDetailsBinding
+    private lateinit var tvShowsContentBinding: FragmentTvContentBinding
     private val args by navArgs<TvShowsDetailsFragmentArgs>()
-
-    /*override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        tvShowsDetailBinding = FragmentTvShowsDetailsBinding.inflate(layoutInflater, container, false)
-        return tvShowsDetailBinding.root
-    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        val binding = FragmentTvShowsDetailsBinding.bind(view)
+        tvShowsDetailBinding = binding
+        tvShowsContentBinding = tvShowsDetailBinding.tvContentFragment
+        val viewModel = ViewModelProvider(requireActivity()).get(TvShowDetailsViewModel::class.java)
         viewModel.tvSelected(args.tvShows)
         viewModel.getTvDetails()
         viewModel.tvDetails.observe(viewLifecycleOwner, {
@@ -48,14 +43,14 @@ class TvShowsDetailsFragment @Inject constructor(
                         result.data?.let { movieDetails ->
                             populateTv(movieDetails)
                         }
-                        tvShowsDetailBinding.progressBar.visibility = View.GONE
+                        tvShowsDetailBinding.pbTvShows.visibility = View.GONE
                     }
                     Status.ERROR -> {
                         tvShowsDetailBinding.tvShowDetailFragment.snack(R.string.tv_shows_detail_fragment_resource_error)
-                        tvShowsDetailBinding.progressBar.visibility = View.GONE
+                        tvShowsDetailBinding.pbTvShows.visibility = View.GONE
                     }
                     Status.LOADING -> {
-                        tvShowsDetailBinding.progressBar.visibility = View.VISIBLE
+                        tvShowsDetailBinding.pbTvShows.visibility = View.VISIBLE
                     }
                 }
             }
@@ -65,7 +60,7 @@ class TvShowsDetailsFragment @Inject constructor(
     private fun populateTv(result: TvDetailResponse) {
         val posterImg = Constant.BASE_IMAGE_SMALL + result.posterPath
         val backdropImg = Constant.BASE_IMAGE_LARGE + result.backdropPath
-        with(tvShowsDetailBinding.detailContent) {
+        with(tvShowsContentBinding) {
             glide.load(posterImg).into(imgTvShowsPoster)
             glide.load(backdropImg).into(imgTvShowsBackdrop)
             tvTvShowsTitle.text = result.originalName

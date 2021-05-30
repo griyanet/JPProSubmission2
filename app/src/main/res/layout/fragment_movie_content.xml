@@ -3,161 +3,165 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <ImageView
-            android:id="@+id/img_backdrop"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:contentDescription="@string/backdrop_desc"
-            android:fitsSystemWindows="true"
-            android:scaleType="centerCrop"
-            app:layout_collapseMode="parallax"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/poster_aquaman" />
+        android:id="@+id/img_backdrop"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:contentDescription="@string/backdrop_desc"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        app:layout_collapseMode="parallax"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/poster_aquaman" />
 
-        <ImageView
-            android:id="@+id/img_poster"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="200dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/poster_desc"
-            android:scaleType="fitStart"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/poster_aquaman" />
+    <ImageView
+        android:id="@+id/img_poster"
+        android:layout_width="130dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="290dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/poster_desc"
+        android:scaleType="fitStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/poster_aquaman" />
 
-        <TextView
-            android:id="@+id/tv_movie_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/movieTitle"
-            android:textColor="#de000000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_poster"
-            app:layout_constraintTop_toBottomOf="@id/img_backdrop"/>
+    <TextView
+        android:id="@+id/tv_movie_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/movieTitle"
+        android:textColor="#de000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_poster"
+        app:layout_constraintTop_toBottomOf="@id/img_backdrop" />
 
-        <TextView
-            android:id="@+id/lbl_release_year"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/lbl_releaseDate"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_poster"
-            app:layout_constraintTop_toBottomOf="@id/tv_movie_title"/>
+    <TextView
+        android:id="@+id/lbl_release_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/lbl_releaseDate"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_poster"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_title" />
 
-        <TextView
-            android:id="@+id/tv_release_year"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/release_date"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_poster"
-            app:layout_constraintTop_toBottomOf="@id/lbl_release_year"/>
+    <TextView
+        android:id="@+id/tv_release_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/release_date"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_poster"
+        app:layout_constraintTop_toBottomOf="@id/lbl_release_year" />
 
-        <TextView
-            android:id="@+id/lbl_budget"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/lbl_budget"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/img_poster"
-            app:layout_constraintTop_toBottomOf="@id/tv_release_year"/>
+    <TextView
+        android:id="@+id/lbl_budget"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/lbl_budget"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/img_poster"
+        app:layout_constraintTop_toBottomOf="@id/tv_release_year" />
 
-        <TextView
-            android:id="@+id/tv_budget"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/budget"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/img_poster"
-            app:layout_constraintTop_toBottomOf="@id/lbl_budget"/>
+    <TextView
+        android:id="@+id/tv_budget"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/budget"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/img_poster"
+        app:layout_constraintTop_toBottomOf="@id/lbl_budget" />
 
-        <TextView
-            android:id="@+id/lbl_revenue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/lbl_revenue"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/lbl_budget"
-            app:layout_constraintTop_toBottomOf="@id/tv_release_year"/>
+    <TextView
+        android:id="@+id/lbl_revenue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/lbl_revenue"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/lbl_budget"
+        app:layout_constraintTop_toBottomOf="@id/tv_release_year" />
 
-        <TextView
-            android:id="@+id/tv_revenue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/revenue"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/lbl_revenue"
-            app:layout_constraintTop_toBottomOf="@id/lbl_budget"/>
+    <TextView
+        android:id="@+id/tv_revenue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/revenue"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/lbl_revenue"
+        app:layout_constraintTop_toBottomOf="@id/lbl_budget" />
 
-        <TextView
-            android:id="@+id/lbl_synopsis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/lbl_Synopsis"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_revenue"/>
+    <TextView
+        android:id="@+id/lbl_synopsis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/lbl_Synopsis"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_revenue" />
 
-        <TextView
-            android:id="@+id/tv_synopsis"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/large_text"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lbl_synopsis" />
+    <TextView
+        android:id="@+id/tv_synopsis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/large_text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_synopsis" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="220dp"
-            android:layout_marginEnd="16dp"
-            android:clickable="true"
-            android:contentDescription="@string/fab"
-            android:focusable="true"
-            android:src="@drawable/ic_add_favorite"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-            android:theme="@style/FormButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_poster"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:contentDescription="@string/fab"
+        android:focusable="true"
+        android:src="@drawable/ic_favorite_blank"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        android:theme="@style/FormButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_poster"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,13 +6,11 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     app:cardCornerRadius="4dp"
-    android:id="@+id/item_movie"
     app:cardElevation="4dp"
     app:cardMaxElevation="4dp"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/item_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -59,7 +57,7 @@
             android:textSize="14sp"/>
 
         <TextView
-            android:id="@+id/tv_overview"
+            android:id="@+id/tvOverview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tv_movie_date"

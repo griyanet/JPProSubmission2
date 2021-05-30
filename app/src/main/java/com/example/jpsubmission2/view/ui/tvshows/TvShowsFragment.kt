@@ -2,9 +2,7 @@ package com.example.jpsubmission2.view.ui.tvshows
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,31 +12,21 @@ import com.example.jpsubmission2.data.remote.responses.TvResultsItem
 import com.example.jpsubmission2.databinding.FragmentTvshowsBinding
 import com.example.jpsubmission2.utils.Status
 import com.example.jpsubmission2.utils.snack
-import com.example.jpsubmission2.viewmodel.MainViewModel
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class TvShowsFragment @Inject constructor(
-    private val tvShowsAdapter: TvShowsAdapter) : Fragment(R.layout.fragment_tvshows) {
+class TvShowsFragment : Fragment(R.layout.fragment_tvshows) {
 
     private lateinit var tvShowsBinding: FragmentTvshowsBinding
-    lateinit var viewModel: MainViewModel
-
-   /* override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        tvShowsBinding = FragmentTvshowsBinding.inflate(layoutInflater, container, false)
-        return tvShowsBinding.root
-    }*/
+    lateinit var viewModel: TvShowsViewModel
+    private lateinit var tvShowsAdapter: TvShowsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        val binding = FragmentTvshowsBinding.bind(view)
+        tvShowsBinding = binding
+        viewModel = ViewModelProvider(requireActivity()).get(TvShowsViewModel::class.java)
         viewModel.getTvs()
         setupRecyclerView()
         subscribeToObserve()
@@ -53,15 +41,15 @@ class TvShowsFragment @Inject constructor(
                     Status.SUCCESS -> {
                         result.data?.results.let { resultItem ->
                             tvShowsAdapter.tvShows = resultItem as List<TvResultsItem>
-                            tvShowsBinding.progressBar.visibility = View.GONE
+                            tvShowsBinding.pbTvShowsList.visibility = View.GONE
                         }
                     }
                     Status.ERROR -> {
-                        tvShowsBinding.tvShowFragment.snack(R.string.tv_shows_fragment_resource_error)
-                        tvShowsBinding.progressBar.visibility = View.GONE
+                        tvShowsBinding.tvShowsFragment.snack(R.string.tv_shows_fragment_resource_error)
+                        tvShowsBinding.pbTvShowsList.visibility = View.GONE
                     }
                     Status.LOADING -> {
-                        tvShowsBinding.progressBar.visibility = View.VISIBLE
+                        tvShowsBinding.pbTvShowsList.visibility = View.VISIBLE
                     }
                 }
             }
@@ -69,6 +57,7 @@ class TvShowsFragment @Inject constructor(
     }
 
     private fun setupRecyclerView() {
+        tvShowsAdapter = TvShowsAdapter()
         with(tvShowsBinding.rvTvShows) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
