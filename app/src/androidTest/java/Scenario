@@ -3,65 +3,14 @@
 #Menampilkan data Movies
 MoviesFragmentTest:
  - Memastikan Movies RecyclerView dalam keadaan tampil
- - Gulir Movies ke posisi data 5
- - Memberi tindakan klik pada data ke 5
+ - Gulir Movies ke posisi data 1
+ - Memberi tindakan klik pada data ke 1
  - Memastikan navigation ke MovieDetailsFragment berjalan dengan baik
-
-#Menampilkan data detail Movies
-MovieDetailsFragmentTest:
- - Memastikan Movie screen dgn ID movie_detail ter-display dengan baik
- - Memastikan image dgn ID img_backdrop ter-display dengan baik
- - Memastikan image dgn ID img_poster ter-display dengan baik
- - Memastikan Movie title tampil sesuai dengan yg diinginkan
- - Memastikan Movie title cocok dgn Movie.title yg dipilih
- - Memastikan Movie release_year tampil sesuai dengan yg diinginkan
- - Memastikan Movie release_year cocok dgn release_year yg dipilih
- - Memastikan Movie budget tampil sesuai dengan yg diinginkan
- - Memastikan Movie budget cocok dgn Movie.budget yg dipilih
- - Memastikan Movie revenue tampil sesuai dengan yg diinginkan
- - Memastikan Movie revenue cocok dgn Movie.revenue yg dipilih
- - Memastikan Movie Synopsis tampil sesuai dengan yg diinginkan
- - Memastikan Movie budget cocok dgn Movie.synopsis yg dipilih
- - Memastikan Floating Action Button AddToFavorite tampil sesuai dengan yg diinginkan
-
-#Menampilkan data TvShows
-TvShowsFragmentTest:
- - Memastikan rv_TvShows dalam keadaan tampil
- - Gulir rv_TvShows ke posisi data 5
- - Memberi tindakan klik pada data ke 5
- - Memastikan navigation ke TvShowsDetailsFragment berjalan dengan baik
-
-#Menampilkan data detail TvShow
-TvShowDetailsFragmentTest:
- - Memastikan screen TvShow detail ter-display dengan baik
- - Memastikan image dgn ID img_tv_shows_backdrop ter-display dengan baik
- - Memastikan image dgn ID img_tv_shows_poster ter-display dengan baik
- - Memastikan tvShow title tampil sesuai dengan yg diinginkan
- - Memastikan tvShow title cocok dgn TvShow.title yg dipilih
- - Memastikan tvShow release_year tampil sesuai dengan yg diinginkan
- - Memastikan tvShow release_year cocok dgn TvShow.release_year yg dipilih
- - Memastikan tvShow synopsis tampil sesuai dengan yg diinginkan
- - Memastikan tvShow synopsis cocok dgn TvShow.synopsis yg dipilih
 
 #Menampilkan data Favorites
 FavoritesFragmentTest:
- - Memastikan rv_TvShows dalam keadaan tampil
- - Gulir rv_TvShows ke posisi data 4
- - Memberi tindakan klik pada data ke 4
- - Memastikan navigation ke FavoriteDetailsFragment berjalan dengan baik
+ - Memastikan Movies RecyclerView dalam keadaan tampil
+  - Gulir Movies ke posisi data 1
+  - Memberi tindakan klik pada data ke 0
+  - Memastikan navigation ke MovieDetailsFragment berjalan dengan baik
 
-#Menampilkan data detail Favorites
-FavoriteDetailFragmentTest:
- - Memastikan screen Favorite detail ter-display dengan baik
- - Memastikan image dgn ID fav_img_backdrop ter-display dengan baik
- - Memastikan image dgn ID fav_img_poster ter-display dengan baik
- - Memastikan Favorite title tampil sesuai dengan yg diinginkan
- - Memastikan Favorite title cocok dgn Favorite.title yg diinginkan
- - Memastikan Favorite release_year tampil sesuai dengan yg diinginkan
- - Memastikan Favorite release_year cocok dgn Favorite.release_year yg diinginkan
- - Memastikan Favorite budget tampil sesuai dengan yg diinginkan
- - Memastikan Favorite budget cocok dgn Favorite.budget yg diinginkan
- - Memastikan Favorite revenue tampil sesuai dengan yg diinginkan
- - Memastikan Favorite revenue cocok dgn Favorite.revenue yg diinginkan
- - Memastikan Favorite synopsis tampil sesuai dengan yg diinginkan
- - Memastikan tvShow synopsis cocok dgn Favorite.synopsis yg diinginkan

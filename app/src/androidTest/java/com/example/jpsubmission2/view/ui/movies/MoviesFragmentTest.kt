@@ -35,22 +35,16 @@ import javax.inject.Inject
 @ExperimentalCoroutinesApi
 class MoviesFragmentTest {
 
-    @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
 
     @Inject
-    lateinit var fragmentFactory: FragmentFactory
+    lateinit var favoriteFragmentFactory: FragmentFactory
 
     @Before
     fun setup() {
         hiltRule.inject()
-    }
-
-    @Before
-    fun setupIdlingResource() {
         IdlingRegistry.getInstance().register(EspressoIdlingResource.countingIdlingResource)
     }
 
@@ -66,21 +60,22 @@ class MoviesFragmentTest {
         val moviesViewModel = MovieViewModel(FakeMovieRepositoryAndroidTest())
         val adapter = MoviesAdapter()
 
-        launchFragmentInHiltContainer<MoviesFragment>(fragmentFactory = fragmentFactory) {
+        launchFragmentInHiltContainer<MoviesFragment>(fragmentFactory = favoriteFragmentFactory) {
             Navigation.setViewNavController(requireView(), navController)
             adapter.movies = moviesFake
             viewModel = moviesViewModel
         }
 
         onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
-        /*onView(withId(R.id.rv_movie))
-            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))*/
+        onView(withId(R.id.rv_movie))
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
+        Thread.sleep(2000)
         onView(withId(R.id.rv_movie))
             .perform(
-                RecyclerViewActions.actionOnItemAtPosition<MoviesAdapter.MoviesViewHolder>(1, click())
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
             )
-        val movies = moviesFake[1]
-        val movieDetailsArg = MoviesFragmentDirections.actionNavigationHomeToMovieDetailsFragment(movies)
+        val moviesFakeArg = moviesFake[1]
+        val movieDetailsArg = MoviesFragmentDirections.actionNavigationHomeToMovieDetailsFragment(moviesFakeArg)
         verify(navController).navigate(
             movieDetailsArg
         )

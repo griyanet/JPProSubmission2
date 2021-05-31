@@ -52,13 +52,13 @@ object FakeDataTest {
         )
         moviRes.add(
             MovieResultsItem(
-                "An elite Navy SEAL uncovers an international conspiracy",
-                "Tom Clancy's Without Remorse",
-                "/rEm96ib0sPiZBADNKBHKBv5bve9.jpg",
-                "/fPGeS6jgdLovQAKunNHX8l0avCy.jpg",
-                "2021-04-29",
-                7.3,
-                56179
+                "Following a zombie outbreak in Las Vegas, a group of mercenaries take the ultimate gamble: venturing into the quarantine zone to pull off the greatest heist ever attempted.",
+                "Army of the Dead",
+                "/z8CExJekGrEThbpMXAmCFvvgoJR.jpg",
+                "/9WlJFhOSCPnaaSmsrv0B4zA8iUb.jpg",
+                "2021-05-14",
+                6.6,
+                503736
             )
         )
         return moviRes

@@ -58,6 +58,9 @@ class MovieDetailsViewModelTest {
         val selectedMovi: LiveData<MovieResultsItem> = sSelectedMovi
         sSelectedMovi.value = moviRes
         moviId = selectedMovi.value?.movieId!!
+        val selectedMovieLive = selectedMovi.getOrAwaitValueTest()
+        Truth.assertThat(selectedMovieLive.movieId).isEqualTo(56179)
+        assertNotNull(selectedMovieLive)
     }
 
     @Test
