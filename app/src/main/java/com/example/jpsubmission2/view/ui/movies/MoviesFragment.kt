@@ -1,7 +1,6 @@
 package com.example.jpsubmission2.view.ui.movies
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +9,7 @@ import com.example.jpsubmission2.R
 import com.example.jpsubmission2.adapter.MoviesAdapter
 import com.example.jpsubmission2.data.remote.responses.MovieResultsItem
 import com.example.jpsubmission2.databinding.FragmentMoviesBinding
+import com.example.jpsubmission2.utils.EspressoIdlingResource
 import com.example.jpsubmission2.utils.Status
 import com.example.jpsubmission2.utils.snack
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,8 +44,8 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
 
     @Suppress("UNCHECKED_CAST")
     private fun subscribeToObserver() {
+        EspressoIdlingResource.increment()
         viewModel.movies.observe(viewLifecycleOwner, {
-            Log.d("MoviesFragment", "Read data from network")
             it.getContentIfNotHandled().let { result ->
                 when (result?.status) {
                     Status.SUCCESS -> {
@@ -64,5 +64,6 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
                 }
             }
         })
+        EspressoIdlingResource.decrement()
     }
 }

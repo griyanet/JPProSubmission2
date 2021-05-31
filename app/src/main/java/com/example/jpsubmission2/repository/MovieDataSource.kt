@@ -24,5 +24,5 @@ interface MovieDataSource {
 
     fun observeFavorites(): LiveData<List<FavoritesMovie>>
 
-    fun getFavoriteItem(id: Int): LiveData<FavoritesMovie>
+
 }

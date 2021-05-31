@@ -61,12 +61,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/favoriteDetailFragment"
-        android:name="com.example.jpsubmission2.view.ui.favorites.FavoriteDetailFragment"
-        android:label="FavoriteDetailFragment" >
-
-    </fragment>
-    <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.jpsubmission2.splash.SplashFragment"
         android:label="SplashFragment" >

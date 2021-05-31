@@ -23,9 +23,6 @@ class FavoriteViewModel @ViewModelInject constructor(
 
     fun insertFavorite(favorite: FavoritesMovie) = viewModelScope.launch { repository.insertFavorite(favorite) }
 
-    fun getFavoriteItem(id: Int) = viewModelScope.launch {
-        val result = repository.getFavoriteItem(id)
-        _favorite.value = result.value
-    }
+
 
 }

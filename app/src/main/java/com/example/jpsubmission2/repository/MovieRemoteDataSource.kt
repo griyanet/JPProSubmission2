@@ -85,7 +85,5 @@ class MovieRemoteDataSource internal constructor(private val api: IMDBAPI) : Mov
         return observeFavorites()
     }
 
-    override fun getFavoriteItem(id: Int): LiveData<FavoritesMovie> {
-        return getFavoriteItem(id)
-    }
+
 }

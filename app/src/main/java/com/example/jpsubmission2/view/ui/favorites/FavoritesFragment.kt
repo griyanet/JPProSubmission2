@@ -50,7 +50,6 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
 
     private fun subscribeToObserver() {
         viewModel.getFavorites().observe(viewLifecycleOwner, {
-            Log.d("FavoriteFragment", "Read Favorite list from Network")
             favAdapter.favMovies = it as List<FavoritesMovie>
             favBinding.pbFavorite.visibility = View.GONE
         })

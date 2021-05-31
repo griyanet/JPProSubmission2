@@ -41,5 +41,5 @@ class DefaultMovieRepository(
         return local.observeFavorites()
     }
 
-    override fun getFavoriteItem(id: Int): LiveData<FavoritesMovie> { return local.getFavoriteItem(id) }
+
 }

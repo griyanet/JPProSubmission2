@@ -33,12 +33,5 @@ class MovieLocalDataSource internal constructor(private val dao: FavoritesDao) :
         return dao.observeAllFavorites()
     }
 
-    override fun getFavoriteItem(id: Int): LiveData<FavoritesMovie> {
-        return dao.getFavoriteItem(id)
-    }
 
-    /*suspend fun isFavoritesSet(id: Int): Boolean {
-        val movieDetailItem = getMovieDetails(id)
-
-    }*/
 }

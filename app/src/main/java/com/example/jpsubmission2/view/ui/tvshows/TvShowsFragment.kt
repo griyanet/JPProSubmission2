@@ -35,7 +35,6 @@ class TvShowsFragment : Fragment(R.layout.fragment_tvshows) {
     @Suppress("UNCHECKED_CAST")
     private fun subscribeToObserve() {
         viewModel.tvs.observe(viewLifecycleOwner, {
-            Log.d("TvShowsFragment", "Read data from network")
             it.getContentIfNotHandled()?.let { result ->
                 when (result.status) {
                     Status.SUCCESS -> {

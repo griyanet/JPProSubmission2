@@ -14,5 +14,5 @@ abstract class TestRemoteRepositoryModule {
 
     @Singleton
     @Binds
-    abstract fun binRepository(movieRemote: FakeMovieRemoteDataSource): MovieRepository
+    abstract fun binRepository()
 }

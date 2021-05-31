@@ -36,7 +36,6 @@ class TvShowsDetailsFragment @Inject constructor(
         viewModel.tvSelected(args.tvShows)
         viewModel.getTvDetails()
         viewModel.tvDetails.observe(viewLifecycleOwner, {
-            Log.d("TvDetailFragment", "Read Movie Detail from Network")
             it.getContentIfNotHandled()?.let { result ->
                 when (result.status) {
                     Status.SUCCESS -> {
